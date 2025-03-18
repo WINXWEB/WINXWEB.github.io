@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winx-Web</title>
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            text-align: center; 
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background: #1e1e1e;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #6fd5b0;  /* Suave verde */
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .hero {
+            background: #181818;
+            width: 100%;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            text-shadow: 0 0 10px #6fd5b0, 0 0 20px #6fd5b0;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            text-shadow: 0 0 8px #6fd5b0;
+        }
+
+        .concepts {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .concepts h2 {
+            color: #6fd5b0;
+            text-shadow: 0 0 5px #ff9ff3; /* Sutil rosa */
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 14px;
+            cursor: pointer;
+            background: #6fd5b0;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+            transition: background 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background: #58c39b;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+        }
+
+        .info-box {
+            background: rgba(111, 213, 176, 0.85); /* Suave verde */
+            padding: 40px;
+            margin: 30px auto;
+            width: 70%;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            color: black;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .info-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-box h2 {
+            color: #6fd5b0;
+            font-size: 2em;
+            text-shadow: 0 0 5px #ff9ff3;  /* Rosa sutil */
+            margin-bottom: 20px;
+        }
+
+        .info-box p {
+            color: #ffffff;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .info-box a {
+            color: #cec0cc;  /* Rosa suave */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .info-box a:hover {
+            color: #6fd5b0; /* Verde suave */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" onclick="showInfo('informacion')">Información</a>
+        <a href="#" onclick="showInfo('conceptos')">Conceptos</a>
+    </div>
+    <div class="hero">
+        <h1>Winx-Web</h1>
+        <p>Inspiración, herramientas y recursos para el desarrollo web.</p>
+    </div>
+    <div class="concepts">
+        <h2>Conceptos Clave</h2>
+        <p>Explora los principios fundamentales del desarrollo web, desde la programación básica hasta las herramientas avanzadas utilizadas en la industria.</p>
+        <p>Aprenderás sobre estructuras de datos, algoritmos, diseño de interfaces, bases de datos, seguridad informática, desarrollo frontend y backend, metodologías ágiles, APIs y más.</p>
+    </div>
+    <div class="buttons">
+        <button onclick="showInfo('devcpp')">Dev C++</button>
+        <button onclick="showInfo('pseint')">PSeInt</button>
+        <button onclick="showInfo('vb')">Visual Basic</button>
+        <button onclick="showInfo('python')">Python</button>
+        <button onclick="showInfo('vscode')">Visual Studio Code</button>
+    </div>
+    <div class="info-box" id="info-box">
+        <h2>Resumen</h2>
+        <p>Haz clic en los botones para obtener más información sobre herramientas de desarrollo.</p>
+    </div>
+
+    <script>
+        function showInfo(option) {
+            const descriptions = {
+                informacion: 'Creado por: Christopher Telenchano<br>Contactos: +123 456 789<br>Correo: ejemplo@correo.com<br>Instagram: @ejemplo',
+                conceptos: 'Los conceptos básicos de programación y desarrollo de software que necesitas conocer.',
+                devcpp: 'Dev C++ es un entorno de desarrollo integrado (IDE) para C y C++. Permite escribir código en C y C++ de manera eficiente con herramientas que facilitan la depuración y ejecución del código. Puedes aprender más en su página oficial: <a href="https://www.bloodshed.net/devcpp.html" target="_blank">Dev C++</a>',
+                pseint: 'PSeInt es una herramienta educativa diseñada para aprender lógica de programación. Es útil para principiantes en programación y ayuda a desarrollar la habilidad de pensar en algoritmos antes de escribir código. Encuentra más información aquí: <a href="https://pseint.sourceforge.io/" target="_blank">PSeInt</a>',
+                vb: 'Visual Basic es un lenguaje de programación desarrollado por Microsoft. Está orientado a la creación de aplicaciones de escritorio con una interfaz gráfica fácil de usar. Aprende más en: <a href="https://learn.microsoft.com/en-us/dotnet/visual-basic/" target="_blank">Visual Basic</a>',
+                python: 'Python es un lenguaje de programación interpretado y de alto nivel. Es conocido por su sintaxis sencilla y su versatilidad, utilizado en ciencia de datos, inteligencia artificial, desarrollo web, entre otros. Descubre más en: <a href="https://www.python.org/" target="_blank">Python</a>',
+                vscode: 'Visual Studio Code es un editor de código fuente desarrollado por Microsoft. Es gratuito y compatible con múltiples lenguajes de programación, ofreciendo una experiencia de desarrollo ligera pero potente. Más detalles en: <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>'
+            };
+
+            // Cambiar el contenido de la caja de información
+            const infoBox = document.getElementById('info-box');
+            if (descriptions[option]) {
+                infoBox.innerHTML = `<h2>${option.charAt(0).toUpperCase() + option.slice(1)}</h2><p>${descriptions[option]}</p>`;
+                infoBox.classList.add('visible'); // Agregar la clase para hacer visible la caja
+            } else {
+                infoBox.innerHTML = `<h2>Información no disponible</h2><p>Lo siento, no hay información para esta opción.</p>`;
+                infoBox.classList.add('visible');
+            }
+        }
+    </script>
+</body>
+</html>
